@@ -1,0 +1,291 @@
+/* Desain Modern & Bersih */
+
+:root {
+    --primary-color: #4f46e5;
+    --secondary-color: #f5f3ff;
+    --text-color: #1f2937;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.header a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 1rem auto;
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+
+    overflow: visible !important; /* FIX AGAR DROPDOWN MUNCUL FULL */
+}
+
+
+/* Formulir dan Input */
+input[type="text"], input[type="password"], input[type="number"], input[type="date"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Tombol */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3b30ad;
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: white;
+}
+.btn-success:hover {
+    background-color: #0d9472;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+.btn-danger:hover {
+    background-color: #c73636;
+}
+
+.btn-secondary {
+    background-color: #e5e7eb;
+    color: var(--text-color);
+}
+.btn-secondary:hover {
+    background-color: #d1d5db;
+}
+
+/* Tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    border: 1px solid #e5e7eb;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Status Stok */
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status-green {
+    background-color: #d1fae5;
+    color: var(--success-color);
+}
+
+.status-red {
+    background-color: #fee2e2;
+    color: var(--danger-color);
+}
+
+/* Layout Login/Register */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.auth-box h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Pastikan card-actions menjadi konteks posisi */
+.card-actions {
+    position: relative;
+    z-index: 10;
+}
+
+/* Default disembunyikan */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    min-width: 160px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    z-index: 9999;
+}
+
+/* Muncul saat hover TOMBOL AKSI atau area dropdown */
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+
+/* =======================
+   DROPDOWN ACTION MENU
+   ======================= */
+
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+/* Button Aksi */
+.btn-action-dropdown {
+    background: #3f51b5;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.85rem;
+    transition: transform 0.25s ease;
+}
+
+/* Putar tombol saat dropdown terbuka */
+.dropdown.open .btn-action-dropdown {
+    transform: rotate(90deg);
+}
+
+/* ======================= */
+/* === DROPDOWN CONTENT === */
+/* ======================= */
+
+.dropdown-content {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+
+    min-width: 160px;
+    border-radius: 6px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s;
+
+    z-index: 9999;
+}
+
+/* === Hover (Desktop) === */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* === Saat OPEN dari Mobile === */
+.dropdown.open .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Item menu */
+.dropdown-content a {
+    padding: 10px 12px;
+    display: block;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.85rem;
+}
+
+.dropdown-content a:hover {
+    background: #f4f4f4;
+}
+
